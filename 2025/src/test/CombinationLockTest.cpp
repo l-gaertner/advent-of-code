@@ -130,23 +130,14 @@ TEST(CombinationLockTest, TurnOverZero10TimesLeftShouldAddToPointedAtZero) {
 TEST(CombinationLockTest, TestGiven) {
     CombinationLock combinationLock;
     combinationLock.turn("L68");
-    std::cout << combinationLock.pointedAtZero() <<std::endl;
     combinationLock.turn("L30");
-    std::cout << combinationLock.pointedAtZero() <<std::endl;
     combinationLock.turn("R48");
-    std::cout << combinationLock.pointedAtZero() <<std::endl;
     combinationLock.turn("L5");
-    std::cout << combinationLock.pointedAtZero() <<std::endl;
     combinationLock.turn("R60");
-    std::cout << combinationLock.pointedAtZero() <<std::endl;
     combinationLock.turn("L55");
-    std::cout << combinationLock.pointedAtZero() <<std::endl;
     combinationLock.turn("L1");
-    std::cout << combinationLock.pointedAtZero() <<std::endl;
     combinationLock.turn("L99");
-    std::cout << combinationLock.pointedAtZero() <<std::endl;
     combinationLock.turn("R14");
-    std::cout << combinationLock.pointedAtZero() <<std::endl;
     combinationLock.turn("L82");
     ASSERT_EQ(combinationLock.pointedAtZero(), 6);
 }

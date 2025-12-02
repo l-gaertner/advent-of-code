@@ -42,6 +42,12 @@ TEST(ProductIdRangeTest, AddProductIdRangeWithInvalidId22And33InTheRange) {
     ASSERT_EQ(productIdRanges.invalidIdSum(), 55);
 }
 
+TEST(ProductIdRangeTest, AddProductIdRangeWithInvalidId1010InTheRange) {
+    ProductIdRanges productIdRanges;
+    productIdRanges.addProductIdRange("998-1012");
+    ASSERT_EQ(productIdRanges.invalidIdSum(), 1010);
+}
+
 TEST(ProductIdRangeTest, AddProductIdRangeWithInvalidId2222InTheRange) {
     ProductIdRanges productIdRanges;
     productIdRanges.addProductIdRange("2222-2224");
@@ -66,8 +72,32 @@ TEST(ProductIdRangeTest, AddProductIdRangeWithInvalidIds2323And2424InTheRange) {
     ASSERT_EQ(productIdRanges.invalidIdSum(), 4747);
 }
 
-TEST(ProductIdRangeTest, AddProductIdRangeWithInvalidIds101InTheRange) {
+TEST(ProductIdRangeTest, AddProductIdRangeWithInvalidId101InTheRange) {
     ProductIdRanges productIdRanges;
     productIdRanges.addProductIdRange("101-102");
-    ASSERT_EQ(productIdRanges.invalidIdSum(), 101);
+    ASSERT_EQ(productIdRanges.invalidIdSum(), 0);
+}
+
+TEST(ProductIdRangesTest, AddMultipleProductIdRangesWithValidId101InTheRange) {
+    ProductIdRanges productIdRanges;
+    productIdRanges.addMultipleProductIdRanges("101-102");
+    ASSERT_EQ(productIdRanges.invalidIdSum(), 0);
+}
+
+TEST(ProductIdRangesTest, AddMultipleProductIdRangesWithInvalidId1010InTheRange) {
+    ProductIdRanges productIdRanges;
+    productIdRanges.addMultipleProductIdRanges("998-1012,1202-1203");
+    ASSERT_EQ(productIdRanges.invalidIdSum(), 1010);
+}
+
+TEST(ProductIdRangesTest, TestGiven) {
+    ProductIdRanges productIdRanges;
+    productIdRanges.addMultipleProductIdRanges("11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124");
+    ASSERT_EQ(productIdRanges.invalidIdSum(), 1227775554);
+}
+
+TEST(ProductIdRangesTest, TestGiven_ex2) {
+    ProductIdRanges productIdRanges;
+    productIdRanges.addMultipleProductIdRanges("11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124");
+    ASSERT_EQ(productIdRanges.invalidIdSum_ex2(), 4174379265);
 }
