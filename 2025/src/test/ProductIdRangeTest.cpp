@@ -23,3 +23,9 @@ TEST(ProductIdRangeTest, AddProductIdRangeWithInvalidId22) {
     productIdRanges.addProductIdRange("22-23");
     ASSERT_EQ(productIdRanges.invalidIdSum(), 22);
 }
+
+TEST(ProductIdRangeTest, AddProductIdRangeWithInvalidId22AtEnd) {
+    ProductIdRanges productIdRanges;
+    productIdRanges.addProductIdRange("21-22");
+    ASSERT_EQ(productIdRanges.invalidIdSum(), 22);
+}

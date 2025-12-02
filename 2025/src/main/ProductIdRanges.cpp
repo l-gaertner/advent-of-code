@@ -14,4 +14,10 @@ void ProductIdRanges::addProductIdRange(std::string range) {
     if (start[0] == start[start.length() - 1]) {
         invalid_id_sum = std::stoi(start);
     }
+
+    std::string end = range.substr(index + 1, range.length() - 1);
+
+    if (end[0] == end[end.length() - 1]) {
+        invalid_id_sum = std::stoi(end);
+    }
 }
