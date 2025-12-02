@@ -23,6 +23,6 @@ void ProductIdRanges::addProductIdRange(std::string range) {
 
     for (std::string value : values_in_range) {
         if (value[0] == value[value.length() -1])
-            invalid_id_sum = std::stoi(value);
+            invalid_id_sum += std::stoi(value);
     }
 }
