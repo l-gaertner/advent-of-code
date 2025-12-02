@@ -1,4 +1,5 @@
 #include "ProductIdRanges.hpp"
+#include <algorithm>
 #include <cassert>
 #include <sstream>
 #include <vector>
@@ -22,7 +23,14 @@ void ProductIdRanges::addProductIdRange(std::string range) {
     }
 
     for (std::string value : values_in_range) {
-        if (value[0] == value[value.length() -1])
+        if (value.length() % 2 == 1) {
+            value.insert(0, "0");
+        }
+
+        std::string prefix = value.substr(0, value.length() / 2);
+        std::string suffix = value.substr(value.length() / 2, std::string::npos);
+
+        if (prefix == suffix)
             invalid_id_sum += std::stoi(value);
     }
 }
