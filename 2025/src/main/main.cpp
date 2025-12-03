@@ -63,7 +63,7 @@ void exerciseFive() {
     }
     long long value = batteryBanks.maxJoltage();
     std::cout << std::format("Exercise 5: max joltage of battery banks {}", value) << std::endl;
-    // assert(value == 35950619148);
+    assert(value == 16973);
 }
 
 void exerciseSix() {
@@ -75,7 +75,7 @@ void exerciseSix() {
     }
     long long value = batteryBanks.maxJoltageWithTwelveBatteries();
     std::cout << std::format("Exercise 6: max joltage of battery banks with twelve batteries {}", value) << std::endl;
-    // assert(value == 35950619148);
+    assert(value == 168027167146027);
 }
 
 int main() {
