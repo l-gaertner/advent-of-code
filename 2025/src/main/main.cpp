@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 
+#include "BatteryBanks.hpp"
 #include "CombinationLock.hpp"
 #include "ProductIdRanges.hpp"
 
@@ -49,8 +50,32 @@ void exerciseFour() {
         productIdRanges.addMultipleProductIdRanges(ranges);
     }
     long long value = productIdRanges.invalidIdSum_ex2();
-    std::cout << std::format("Exercise 3: sum of invalid ids {}", value) << std::endl;
+    std::cout << std::format("Exercise 4: sum of invalid ids {}", value) << std::endl;
     assert(value == 35950619148);
+}
+
+void exerciseFive() {
+    BatteryBanks batteryBanks;
+    std::ifstream input("../resources/input-03.txt");
+    std::string bank;
+    while (input >> bank) {
+        batteryBanks.addBank(bank);
+    }
+    long long value = batteryBanks.maxJoltage();
+    std::cout << std::format("Exercise 5: max joltage of battery banks {}", value) << std::endl;
+    // assert(value == 35950619148);
+}
+
+void exerciseSix() {
+    BatteryBanks batteryBanks;
+    std::ifstream input("../resources/input-03.txt");
+    std::string bank;
+    while (input >> bank) {
+        batteryBanks.addBank(bank);
+    }
+    long long value = batteryBanks.maxJoltageWithTwelveBatteries();
+    std::cout << std::format("Exercise 6: max joltage of battery banks with twelve batteries {}", value) << std::endl;
+    // assert(value == 35950619148);
 }
 
 int main() {
@@ -58,4 +83,6 @@ int main() {
     exerciseTwo();
     exerciseThree();
     exerciseFour();
+    exerciseFive();
+    exerciseSix();
 }

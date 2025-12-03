@@ -8,6 +8,7 @@ class BatteryBanks {
         std::vector<std::string> banks;
     public:
         int maxJoltage();
+        long maxJoltageWithTwelveBatteries();
         void addBank(std::string bank);
 };
 
