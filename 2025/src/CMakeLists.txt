@@ -3,6 +3,8 @@ add_library(main_lib STATIC
     main/CombinationLock.cpp
     main/ProductIdRanges.cpp
     main/BatteryBanks.cpp
+    main/PaperGrid.cpp
+    main/ListOfIngredients.cpp
 )
 target_link_libraries(main PRIVATE main_lib)
 # target_link_libraries(main PRIVATE BigInt)
@@ -15,6 +17,8 @@ if (BUILD_TESTING)
         test/CombinationLockTest.cpp
         test/ProductIdRangeTest.cpp
         test/BatteryBanksTest.cpp
+        test/PaperGridTest.cpp
+        test/ListOfIngredientsTest.cpp
     )
 
     target_link_libraries(my_test PRIVATE GTest::gtest_main)

@@ -1,9 +1,7 @@
 #include "ProductIdRanges.hpp"
-#include <algorithm>
 #include <cassert>
-#include <cmath>
 #include <iostream>
-#include <sstream>
+#include <regex>
 #include <string>
 #include <vector>
 
@@ -47,14 +45,19 @@ long long ProductIdRanges::invalidIdSum_ex2() {
 
         for (long value_long = start; value_long <= end; value_long++) {
             std::string value = std::to_string(value_long);
-            for (int a = 1; a < value.length(); a++) {
+            for (int a = 1; a < value.length() / 2 + 1; a++) {
                 if (value.length() % a == 0) {
                     std::string prefix = value.substr(0, a);
-                    std::string would_be_id;
-                    for (int b = 0; b < value.length() / a; b++)
-                        would_be_id.append(prefix);
+                    bool does_pattern_match = true;
+                    for (size_t b = 0; b < value.length() / a; b++) {
+                        std::string substring = value.substr(b * prefix.length(), prefix.length());
+                        if (substring != prefix) {
+                            does_pattern_match = false;
+                            break;
+                        }
+                    }
 
-                    if (would_be_id == value) {
+                    if (does_pattern_match) {
                         invalid_id_sum += std::stol(value);
                         break;
                     }
